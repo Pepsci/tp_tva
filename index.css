@@ -1,0 +1,27 @@
+#tva, #val, #valeurmontant, #montant_tva,#taux{
+	display: flex;
+	justify-content: space-around;
+	justify-content: 
+}
+#montant_tva{
+	margin-left: -78px;
+    margin-right: -45px;
+
+}
+#tva div input{
+	width: 150px;
+}
+.container{
+	width: 1200px;
+	height: 400px;
+
+	background: #4CC5FE;
+}
+h1{
+	padding-top: 40px;
+	color: white;
+}
+input{
+	text-align: center;
+	border-radius: 10px, 10px;
+}
