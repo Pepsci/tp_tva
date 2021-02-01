@@ -1,44 +1,47 @@
+var tout_les_input = document.querySelectorAll('input[type="text"]');
+for(var index = 0; index < tout_les_input.length; index++){
+
+	tout_les_input[index].addEventListener('keyup', calculeTTC )
+
+}
 function calculeTTC(){
 
-var resultttc = 0;
-var resulttva = 0;
-let calculeTTC = 0
 
-
-var	taux = parseFloat(document.getElementById('taux').value);
-var	montant = parseFloat(document.getElementById('montant').value);	
-var	montanttva = parseFloat(document.querySelector('.montanttva').value);
-
-
-	// while (calculeTTC < 4) {
+var	taux = document.getElementById('taux').value;
+var	montant = document.getElementById('montant').value;	
+var	montanttva = document.querySelector('.montanttva').value;
 	
 	resulttva = taux* montant / 100;
-	resultttc = montant + (montant * taux / 100);
 
+montant = parseInt(montant);
+
+	resultttc = montant+ (taux* montant / 100);
 	document.querySelector('.montanttva').value = resulttva;
 	document.getElementById('resultat').value = resultttc;
-	
-	// calculeTTC++;
-	// }
+
 }
 
-var les_tva = document.querySelectorAll('.tva');
 
-function clique() {
-	var getValue = this.getAttribute('value');
 
-	document.getElementById('taux').value = getValue;
-}
+var les_tva = document.querySelectorAll('input[type="button"]');
 
 for(var index = 0; index < les_tva.length; index++){
-	les_tva[index].addEventListener('click', clique);
+	les_tva[index].addEventListener('click', function () {
 
+	document.getElementById('taux').value = parseInt(this.value);
+
+	calculeTTC();
+});
 }
 
 
-	// var montantHorsTaxe = document.createElement('p');
-	// montantHorsTaxe.append(document.createTextNode('Montant Hors Taxes: '+ montant +'€'));
-	// document.querySelector('.container').append(montantHorsTaxe);
+
+
+
+var	montant = document.getElementById('montant').value;	
+var montantHorsTaxe = document.createElement('p');
+montantHorsTaxe.append(document.createTextNode('Montant Hors Taxes: '+ montant +'€'));
+document.querySelector('.container').append(montantHorsTaxe);
 
 	// 	var montantTVA = document.createElement('p');
 	// montantTVA.append(document.createTextNode('Montant Hors Taxes: '+ montant +'€'));
